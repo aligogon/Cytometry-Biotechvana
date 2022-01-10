@@ -6,7 +6,7 @@
 #Instalación de paquetes:
 
 # List of packages for session
-.packages = c("shiny", "shinythemes", "RColorBrewer", "lattice", "reshape2", "googleVis", "flowCore", "bit", "CytoTree", "ggplot2", "ggthemes", "plotly", "devtools", "DynTxRegime", "modelObj", "shinydashboard", "shinydashboardPlus", "reticulate", "this.path", "rMIDAS", "flowAI", "tcltk", "gplots", "graphics", "e1071", "lle", "vegan", "tabplot", "shinybusy")
+.packages = c("shiny", "shinythemes", "RColorBrewer", "lattice", "reshape2", "googleVis", "flowCore", "bit", "CytoTree", "ggplot2", "ggthemes", "plotly", "devtools", "DynTxRegime", "modelObj", "shinydashboard", "shinydashboardPlus", "reticulate", "this.path", "rMIDAS", "BiocManager", "LSD", "tcltk", "gplots", "graphics", "e1071", "lle", "vegan", "tabplot", "shinybusy")
 #this.path->localizar scripts
 #reticulate-> uso de python dentro de R
 #rMIDAS -> para poder fijar el env de python
@@ -40,6 +40,7 @@ lapply(.packages, require, character.only=TRUE)
 if("tabplot" %in% rownames(installed.packages()) == FALSE) {install_github("mtennekes/tabplot")}
 if("reticulate" %in% rownames(installed.packages()) == FALSE){devtools::install_github("rstudio/reticulate")} #necesario instalarlo así, sino da errores luego cuando usamos reticulate
 if("CytoTree" %in% rownames(installed.packages()) == FALSE){devtools::install_github("JhuangLab/CytoTree")}
+if("flowAI" %in% rownames(installed.packages()) == FALSE){BiocManager::install("flowAI")}
 
 ###cargamos las funciones auxiliares
 source("global.R") ##este es el script auxiliar que contiene funciones del módulo FlowiQC y de cytotree, son funciones que pueden ser llamadas por iu o server
@@ -51,7 +52,8 @@ use_virtualenv("r-reticulate") #indicamos que use este entorno
 #system("sudo apt install python3.8-venv")  #Desmarcar si es necesario, yo tuve que hacerlo para que me dejase tener pip en el entorno virtual
 #system(" .virtualenvs/r-reticulate/bin/python -m ensurepip") 
 #instalamos el módulo de genepattern de python
-if (import("gp")== FALSE) {virtualenv_install("r-reticulate", packages = "genepattern-python")}
+#if (import("gp")== FALSE) {virtualenv_install("r-reticulate", packages = "genepattern-python")} 
+virtualenv_install("r-reticulate", packages = "genepattern-python") #opto por esta opción ya que da menos problemas de instalación
 gp <-import("gp") #cargamos genepattern
 
 
