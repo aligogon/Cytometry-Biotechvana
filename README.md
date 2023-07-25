@@ -27,7 +27,9 @@ If this is the case, select "n", and run your app again. All dependencies should
 The present work and prototype of Cytometry Biotechvana has been carried out under the framework of the master's thesis of the master's degree in Advanced Bioinformatics Analysis at the Pablo de Olavide University (Seville).
 
 ## References
-Scripts and algorythms from different sources have been adapted and modified. Full list of references can be found on related paper. Though, mayor consulted sources were:  
+Scripts and algorythms from different sources have been adapted and modified. Full list of references can be found on related paper (http://bioinformatics.biotechvana.com/article_files/40/pdf/Biotechvana_bioinformatics_2022-SOFT1_final%20.pdf). Though, mayor consulted sources were:  
 Dai Y, Xu A, Li J, Wu L, Yu S, Chen J, et al. CytoTree: an R/Bioconductor package for analysis and visualization of flow and mass cytometry data. BMC Bioinformatics 2021, 22:1–20
 Spidlen J, Barsky A, Breuer K, Carr P, Nazaire MD, Hill BA, et al. GenePattern flow cytometry suite. Source Code Biol Med 2013, 8:14
 flowiQC_shinyAPP, A shiny app for interactive quality control of flow cytometry data https://github.com/SIgNBioinfo/flowiQC_shinyAPP
+
+
